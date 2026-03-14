@@ -9,28 +9,15 @@ import {
   LinearProgress,
   Skeleton
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import { motion } from "framer-motion";
 
 const NewsChecker = () => {
-//  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [result, setResult] = useState(null);
   const [sources, setSources] = useState([]);
   const [confidence, setConfidence] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [typedText, setTypedText] = useState("");
-
-  const typeEffect = (text) => {
-    let i = 0;
-    setTypedText("");
-    const interval = setInterval(() => {
-      setTypedText((prev) => prev + text[i]);
-      i++;
-      if (i === text.length) clearInterval(interval);
-    }, 20);
-  };
 
   const handleCheck = async () => {
     if (!query.trim()) return;
@@ -49,8 +36,6 @@ const NewsChecker = () => {
 
       const randomConfidence = Math.floor(Math.random() * 20) + 80;
       setConfidence(randomConfidence);
-
-      typeEffect(resText);
     } catch (err) {
       console.error(err);
     }
