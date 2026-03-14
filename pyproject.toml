@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "fake-news-detection"
+version = "0.1.0"
+description = "Fake News Detection API using FastAPI, Tavily and Groq"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = ">=0.110.0"
+uvicorn = {extras = ["standard"], version = ">=0.28.0"}
+pydantic = ">=2.10.0"
+requests = ">=2.32.0"
+openai = ">=1.50.0"
+python-dotenv = ">=1.0.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
