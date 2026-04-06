@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import requests
 from openai import OpenAI
+from groq import Groq
 import os
 from dotenv import load_dotenv
 
@@ -58,14 +59,14 @@ Respond with exactly one word: either "True" or "Fake News".
 """
 
 
-    client = OpenAI(
+    client = Groq(
     api_key=GROQ_API_KEY,
-    base_url="https://api.groq.com/openai/v1"
+    base_url="https://api.groq.com/"
 )
 
     response = client.chat.completions.create(
         # model="deepseek-r1-distill-llama-70b",
-        model="compound-beta",
+        model="qwen/qwen3-32b",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3
     )
